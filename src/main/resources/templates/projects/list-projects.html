@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<!--
+This is a presentational page that displays the data with the each loop : th:each="aProject: ${projectList}" Also contains a button wired
+to the controller displayEmployeeForm method to send you to the page that creates a new project.
+This ${projectList} is the attribute from EmployeeController @GetMapping method displayProjects -> model.addAttribute("projectList",projects) because
+we are looping the projectList populated with the user form.
+Same operation is done by the EmployeeController.
+-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts:: header"></head>
+
+<body>
+<nav th:replace="layouts:: navbar"></nav>
+
+<div class="container">
+    <h3> Projects Directory </h3>
+    <hr/>
+
+    <!--Add new Employee Button -->
+    <a th:href="@{/projects/new}" class="btn btn-primary btn-sm mb-3">
+        New Project
+    </a>
+    <br></br>
+
+    <table class="table table-bordered table striped">
+        <thead class="thead-dark">
+        <tr>
+            <th> Project Name </th>
+            <th> Project Stage </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aProject: ${projectList}">
+            <td th:text="${aProject.name}"/>
+            <td th:text="${aProject.stage}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+</html>

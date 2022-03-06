@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 
+<!--The action="/employees/save is to save the form into the database from the EmployeeController @PostMapping("/save").
+The th:object="${employee}" comes from EmployeeController displayEmployeeForm method and model.addAttribute("employee", anEmployee), so we are
+wiring the data received here and displaying it throughout this method in the controller. As you can see this anEmployee that comes from the controller is
+an empty Object (that we can create since we defined in the class Employee an empty constructor) that the user populates by typing the data in this form.
+The form save it into the database throughout the method createEmployee also in the controller and the data is posted
+in the Home page and the Employee Directory page.
+
+-->
+
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="layouts:: header"></head>
@@ -13,10 +22,10 @@
         <input type="text" placeholder="First Name" th:field="${employee.firstName}">
         <input type="text" placeholder="Last Name" th:field="${employee.lastName}">
         <input type="text" placeholder="Email Address" th:field="${employee.email}">
-
         <button type="submit">Create Employee</button>
     </form>
 </div>
+
 
 </body>
 
